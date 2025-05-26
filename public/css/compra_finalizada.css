@@ -1,0 +1,26 @@
+.compra-finalizada{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 63px;
+    padding: 50px;
+}
+.mensaje1{
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    justify-content: center;
+}
+.mensaje1 h1{
+    font-size: 32px;
+}
+.mensaje1 p{
+    color: #323232;
+    font-size: 20px;
+}
+.mensaje2 p{
+    text-align: center;
+    color: #353535;
+    font-size: 32px;
+    font-weight: 600;
+}

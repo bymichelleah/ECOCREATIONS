@@ -1,0 +1,98 @@
+.procesar-compra{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 122px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.formulario form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.datos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.datos-necesarios{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #B8B8B8;
+    padding: 15px;
+    gap: 15px;
+}
+.datos-necesarios p{
+    background-color: #487C46;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    padding: 2px 12px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+.campos-dobles{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+.campos-dobles input{
+    width: 184px;
+}
+input{
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #8B8B8B;
+}
+select{
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #8B8B8B;
+}
+.campos-dobles select{
+    width: 184px;
+    height: 36px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #8B8B8B;
+}
+.button-enviar button{
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #487C46;
+    border: none;
+}
+.resumen-de-compra h1{
+    font-size: 19px;
+    padding-bottom: 10px;
+}
+.pedido-resumido{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.pedido-resumido img{
+    width: 87px;
+    height: 76px;
+}
+.pedido-resumido p{
+    font-size: 19px;
+}
+.pedido-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #8B8B8B;
+}
