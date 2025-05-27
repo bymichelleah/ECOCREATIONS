@@ -41,10 +41,6 @@
                     Estoy de acuerdo con la política de privacidad y términos y condiciones.
                 </label>
             </div>
-            <div class="recaptcha-placeholder">
-                <!-- Aquí irá el reCAPTCHA -->
-                <div class="g-recaptcha" data-sitekey="6LcDEEkrAAAAAPINtXkXfiTRUceKSpHCjGtuBVVc"></div>
-            </div>
 
             <button class="contacto-enviar" type="submit">Enviar</button>
         </form>

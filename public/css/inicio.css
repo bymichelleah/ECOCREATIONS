@@ -1,70 +1,67 @@
-.sec-uno{
+.sec-uno {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px 120px;
     gap: 20px;
 }
-.sec-uno section{
+.sec-uno section {
     width: 50%;
     padding: 2rem 0 2rem 0;
 }
-.sec-uno h2{
-    color: #487C46;
+.sec-uno h2 {
+    color: #487c46;
     font-size: 3rem;
 }
 
-.ver{
+.ver {
     border: none;
-    background-color: #487C46;
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 15px;
-    font-weight: bold;
-    
-}
-
-.contacto{
-    border: none;
-    background-color: #ADB135;
+    background-color: #487c46;
     color: white;
     padding: 0.5rem 1.2rem;
     border-radius: 15px;
     font-weight: bold;
 }
 
-.section-left{
+.contacto {
+    border: none;
+    background-color: #adb135;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.section-left {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
-.botones{
+.botones {
     display: flex;
     gap: 1rem;
 }
-.hero{
+.hero {
     width: 100%;
 }
-.sec-tres{
+.sec-tres {
     padding: 2rem 0 2rem 0;
     text-align: center;
-
 }
 
-.sec-tres h2{
-    color: #487C46;
+.sec-tres h2 {
+    color: #487c46;
     font-size: 2rem;
 }
 
-.sec-tres img{
+.sec-tres img {
     width: 100%;
 }
 
-.sec-cuatro{
+.sec-cuatro {
     display: flex;
     align-items: center;
     padding: 2rem 0 2rem 0;
-
 }
 .sec-cuatro {
     display: flex;
@@ -72,39 +69,67 @@
     align-items: center;
     justify-content: center;
 }
-.sec-cuatro .collage{
+.sec-cuatro .collage {
     width: 24rem;
 }
 
-.sec-mision h2{
-    color: #487C46;
+.sec-mision h2 {
+    color: #487c46;
     font-size: 2rem;
 }
-.sec-mision span{
+.sec-mision span {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.sec-mision{
+.sec-mision {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
 }
-.check{
+.check {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.sec-cinco{
+.sec-cinco {
     padding: 2rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
-.productos{
-    color: #487C46;
+.productos {
+    color: #487c46;
     font-size: 2rem;
     text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sec-uno,
+    .sec-cuatro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .botones {
+        justify-content: center;
+    }
+
+    .section-left h2,
+    .sec-mision h2,
+    .sec-tres h2,
+    .sec-cinco h2 {
+        font-size: 2rem;
+    }
+
+    .section-left p,
+    .sec-mision p {
+        font-size: 0.95rem;
+    }
+
+    .check span {
+        justify-content: center;
+    }
 }

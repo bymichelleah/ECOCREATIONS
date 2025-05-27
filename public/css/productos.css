@@ -22,7 +22,7 @@
     align-items: center;
     gap: 5px;
     border-radius: 10px;
-    background-color: #487C46;
+    background-color: #487c46;
     padding: 10px 12px;
     cursor: pointer;
 }
@@ -54,7 +54,7 @@
 }
 
 .product h4 {
-    color: #2F2F2F;
+    color: #2f2f2f;
     font-size: 16px;
     margin-top: 5px;
 }
@@ -66,13 +66,13 @@
 }
 
 .precio-product p {
-    color: #1D1D1D;
+    color: #1d1d1d;
     font-size: 16px;
     font-weight: 600;
 }
 
-.add-product p{
-    background-color: #487C46;
+.add-product p {
+    background-color: #487c46;
     color: white;
     font-size: 15px;
     padding: 10px 12px;
@@ -80,3 +80,29 @@
     cursor: pointer;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+    .category-product {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .category {
+        width: 80%;
+    }
+
+    .category a {
+        font-size: 1.2rem;
+    }
+
+    .category img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .list-product {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
