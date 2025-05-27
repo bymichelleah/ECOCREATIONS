@@ -33,7 +33,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Expose port used by php atisan serve
-EXPOSE 8000
+EXPOSE 80
 
 # Install PHP and JS dependencies
 RUN composer install
@@ -43,4 +43,4 @@ RUN npm install
 RUN npm run build
 
 #Run Laravel migrations and start server
-CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8000
+CMD bash -c "until php artisan migrate --force; do sleep 3; done && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=80"
