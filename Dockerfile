@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# Instalar dependencias del sistema
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -19,26 +19,28 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_pgsql pdo_mysql mbstring exif pcntl bcmath gd zip sodium
 
-# Composer
+# Get composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Node.js
+# Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash && \
-    apt-get update && apt-get install -y nodejs
+apt-get update && apt-get install -y nodejs
 
-# Directorio de trabajo
+# Set working directory
 WORKDIR /var/www/html
 
-# Copiar archivos
+# Copy application files
 COPY . .
 
-# Instalar dependencias
+# Expose port used by php atisan serve
+EXPOSE 8000
+
+# Install PHP and JS dependencies
 RUN composer install
-RUN npm install && npm run build
+RUN npm install
 
-# Limpiar cachés
-RUN php artisan config:clear && php artisan route:clear && php artisan view:clear
+#Run comando npm run dev
+RUN npm run build
 
-# CMD corregido
-CMD ["sh", "-c", "php artisan config:cache && php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=80"]
-
+#Run Laravel migrations and start server
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8000
