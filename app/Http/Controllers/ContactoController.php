@@ -20,39 +20,41 @@ class ContactoController extends Controller
             'asunto' => 'required|string|max:255',
             'mensaje' => 'required|string',
             'terminos' => 'accepted',
-            'g-recaptcha-response' => 'required' // Para reCAPTCHA
+            'g-recaptcha-response' => 'required' // Validación de reCAPTCHA
         ]);
 
         if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Validar reCAPTCHA manualmente
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        // Verificación del reCAPTCHA
+        $recaptchaResponse = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => env('RECAPTCHA_SECRET_KEY'),
             'response' => $request->input('g-recaptcha-response'),
         ]);
 
-        if (!$response->json('success')) {
-            return back()->withErrors(['captcha' => 'Error con el reCAPTCHA'])->withInput();
+        if (!$recaptchaResponse->json('success')) {
+            return redirect()->back()->withErrors(['captcha' => 'No se pudo verificar el reCAPTCHA.'])->withInput();
         }
 
-        // Enviar correo
-        Mail::send('email.validar_contacto', [
-            'data' => [
-                'nombres' => $request->nombres,
-                'apellidos' => $request->apellidos,
-                'email' => $request->email,
-                'telefono' => $request->telefono,
-                'asunto' => $request->asunto,
-                'mensaje' => $request->mensaje,
-            ]
-        ], function ($message) use ($request) {
+        // Datos a enviar por correo
+        $datos = [
+            'nombres'  => $request->input('nombres'),
+            'apellidos' => $request->input('apellidos'),
+            'email'     => $request->input('email'),
+            'telefono'  => $request->input('telefono'),
+            'asunto'    => $request->input('asunto'),
+            'mensaje'   => $request->input('mensaje'),
+        ];
+
+        // Envío del correo
+        Mail::send('email.validar_contacto', ['data' => $datos], function ($message) use ($request) {
             $message->to('alanyakatherine@gmail.com')
-                ->subject($request->asunto)
-                ->replyTo($request->email);
+                ->subject($request->input('asunto'))
+                ->replyTo($request->input('email'));
         });
 
-        return back()->with('success', 'Mensaje enviado correctamente.');
+        return redirect()->back()->with('success', 'Mensaje enviado correctamente.');
     }
 }
+

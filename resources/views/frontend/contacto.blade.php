@@ -10,6 +10,22 @@
 </section>
 <br>
     <main class="form-container">
+        @if ($errors->any())
+    <div class="error-mensajes">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (session('success'))
+    <div class="mensaje-exito">
+        {{ session('success') }}
+    </div>
+@endif
+
         <h1>Consulta tus dudas aquí</h1>
         <form method="POST" action="{{ route('contacto.enviar') }}">
             @csrf
