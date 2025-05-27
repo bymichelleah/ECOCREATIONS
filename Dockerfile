@@ -41,6 +41,8 @@ RUN npm install
 
 #Run comando npm run dev
 RUN npm run build
+RUN chmod -R 775 storage bootstrap/cache
+RUN chmod -R 777 storage bootstrap/cache
 
 #Run Laravel migrations and start server
 CMD bash -c "until php artisan migrate --force; do sleep 3; done && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=80"
