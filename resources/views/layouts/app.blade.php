@@ -23,7 +23,13 @@
             <section class="nav-logo">
                 <img src="{{ asset('img/layouts/logo.png')}}" alt="logo">
             </section>
-            <section class="nav-menu">
+
+            <!-- Botón hamburguesa para móviles -->
+            <button class="hamburger" id="hamburger">
+                &#9776;
+            </button>
+
+            <section class="nav-menu" id="navMenu">
                 <ul class="nav-enlaces">
                     <li><a href="{{route('inicio')}}">Inicio</a></li>
                     <li><a href="{{route('nosotros')}}">Nosotros</a></li>
@@ -55,7 +61,7 @@
         <section class="sec-first">
             <img class="logo-blanco" src="{{ asset('img/layouts/logofooter.png') }}" alt="logo">
             <p>Es una empresa dedicada a la producción y comercialización de productos <br> ecológicos personalizados. Promueve el cuidado del medio ambiente <br> mediante soluciones sostenibles e innovadoras.</p>
-            <img class="redes" src="{{ asset('img/layouts/icons.png') }}" alt="icons">
+            <img class="redes" src="{{ asset('img/layouts/icons.png') }}" alt="icons" width="130rem">
         </section>
         <section class="sec-second">
             <h3>Navegación</h3>
@@ -67,8 +73,8 @@
         </section>
         <section class="sec-">
             <h3>Contacto</h3>
-            <p>‪+51 1 234 5678‬</p><br>
-            <p>www.ecocreationsperu.com</p><br>
+            <p>‪‪+51 1 234 5678‬‬</p><br>
+            <p>‪www.ecocreationsperu.com‬</p><br>
             <p>ecocreationsperu</p><br>
             <p>Av. Los Álamos 456, Surco, Lima, Perú</p><br>
         </section>
@@ -77,6 +83,12 @@
             <img src="{{ asset('img/layouts/input.png') }}" alt="input">
         </section>
     </footer>
+
+    <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+        document.getElementById('navMenu').classList.toggle('show-menu');
+    });
+</script>
 </body>
 
 </html>
